@@ -1,3 +1,4 @@
+@use "sass:math";
 //<Шрифт по умолчанию>==========================================================================================
 $fontFamily: "Rubik";
 $fontSize: 12;
@@ -8,16 +9,14 @@ $fontSize: 12;
 //<ПЕРЕМЕННЫЕ>===========================================================================================================
 $minWidth: 320px;
 $maxWidth: 1152;
-$maxWidthContainer: 1050;
+$maxWidthContainer: 1080;
 $md1: $maxWidthContainer + 12;
 $md2: 991.98;
 $md3: 767.98;
 $md4: 479.98;
 
-$mainColor: #3a3a3a;
-$orangeColor: #e89f71;
-$grayColor: #898989;
-$darkGrayColor: #616161;
+$mainColor: #ec5863;
+$blueColor: #4285f4;
 
 //</ПЕРЕМЕННЫЕ>===========================================================================================================
 
@@ -25,43 +24,93 @@ $darkGrayColor: #616161;
 @import "_null.scss";
 
 .wrapper {
+	min-height: 100%;
 	overflow: hidden;
 	display: flex;
 	flex-direction: column;
 }
 
-._container {
+[class*="__container"] {
+	max-width: $maxWidthContainer + px;
+	margin: 0px auto;
+	padding: 0px 15px;
 }
+
 ._btn {
+	font-family: Raleway;
+	font-weight: 800;
+	font-size: 10px;
+	line-height: math.div(12, 10);
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+	color: #fcfdfe;
+	background-color: $mainColor;
+	padding: 14px 30px;
+	border-radius: 5px;
+	transition: all 0.3s ease 0s;
+	&_blue {
+		background-color: $blueColor;
+		@media (any-hover: hover) {
+			&:hover {
+				background-color: #91b3eb;
+			}
+		}
+	}
 }
 
 //</ОБНУЛЕНИЕ, ОБЩИЕ ПАРАМЕТРЫ>===============================================================================================
 
 //========================================================================================================================================================
 .header {
+	position: fixed;
+	width: 100%;
 	// .header__container
 	&__container {
+		min-height: 86px;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
 	}
 	// .header__logo
 	&__logo {
+		margin: 0px 20px 0px 0px;
 	}
 	// .header__menu
 	&__menu {
+		flex: 1 1 auto;
 	}
 }
 
 .menu-header {
 	// .menu-header__list
 	&__list {
+		display: flex;
+		justify-content: flex-end;
 	}
 	// .menu-header__item
 	&__item {
+		margin: 0px 40px 0px 0px;
 	}
 	// .menu-header__link
 	&__link {
+		font-family: Raleway;
+		font-weight: 700;
+		font-size: 0.625rem;
+		line-height: 1.2em;
+		letter-spacing: 0.14em;
+		color: #000;
+		transition: color 0.3s ease 0s;
+		@media (any-hover: hover) {
+			&:hover {
+				color: $mainColor;
+			}
+		}
 	}
 	// .menu-header__download
 	&__download {
+		flex: 0 0 252px;
+		display: flex;
+		justify-content: flex-end;
 	}
 	// .menu-header__download-btn
 	&__download-btn {
