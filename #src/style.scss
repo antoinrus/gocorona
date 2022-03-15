@@ -1,4 +1,15 @@
 @use "sass:math";
+//========================================================================================================================================================
+//REM
+@function rem($px) {
+	$result: math.div($px, 16) + rem;
+	@return $result;
+}
+//EM
+@function em($px, $current: 16) {
+	$result: math.div($px, $current) + em;
+	@return $result;
+}
 //<Шрифт по умолчанию>==========================================================================================
 $fontFamily: "Rubik";
 $fontSize: 12;
@@ -8,12 +19,12 @@ $fontSize: 12;
 
 //<ПЕРЕМЕННЫЕ>===========================================================================================================
 $minWidth: 320px;
-$maxWidth: 1152;
-$maxWidthContainer: 1080;
-$md1: $maxWidthContainer + 12;
-$md2: 991.98;
-$md3: 767.98;
-$md4: 479.98;
+$maxWidth: 1152px;
+$maxWidthContainer: 1080px;
+$pc: $maxWidthContainer + 12px;
+$tablet: 991.98px;
+$mobile: 767.98px;
+$mobileSmall: 479.9px;
 
 $mainColor: #ec5863;
 $blueColor: #4285f4;
@@ -23,6 +34,12 @@ $blueColor: #4285f4;
 //<ОБНУЛЕНИЕ, ОБЩИЕ ПАРАМЕТРЫ>===============================================================================================
 @import "_null.scss";
 
+body {
+	&._lock {
+		overflow: hidden;
+	}
+}
+
 .wrapper {
 	min-height: 100%;
 	overflow: hidden;
@@ -31,12 +48,13 @@ $blueColor: #4285f4;
 }
 
 [class*="__container"] {
-	max-width: $maxWidthContainer + px;
+	max-width: $maxWidthContainer;
 	margin: 0px auto;
 	padding: 0px 15px;
 }
 
 ._btn {
+	display: inline-block;
 	font-family: Raleway;
 	font-weight: 800;
 	font-size: 10px;
@@ -64,6 +82,7 @@ $blueColor: #4285f4;
 .header {
 	position: fixed;
 	width: 100%;
+	z-index: 50;
 	// .header__container
 	&__container {
 		min-height: 86px;
@@ -74,28 +93,94 @@ $blueColor: #4285f4;
 	// .header__logo
 	&__logo {
 		margin: 0px 20px 0px 0px;
+
+		@media (max-width: 400px) {
+			width: 40px;
+			overflow: hidden;
+		}
 	}
 	// .header__menu
 	&__menu {
 		flex: 1 1 auto;
+		z-index: -1;
+	}
+	// .header__action
+	&__action {
+		flex: 0 0 252px;
+		display: flex;
+		justify-content: flex-end;
+		align-items: center;
+		@media (max-width: $tablet) {
+			flex: 0 0 200px;
+		}
+	}
+	// .header__action-btn
+	&__action-btn {
+	}
+	// .header__icon
+	&__icon {
 	}
 }
 
-.menu-header {
-	// .menu-header__list
+.menu {
+	position: relative;
+	@media (max-width: $mobile) {
+		&:before {
+			content: "";
+			position: fixed;
+			width: 100%;
+			height: 80px;
+			left: 0;
+			top: 0;
+			background-color: #fff;
+			z-index: 2;
+		}
+	}
+
+	// .menu__body
+	&__body {
+		@media (max-width: $mobile) {
+			position: fixed;
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: -100%;
+			background-color: #fff;
+			padding: 100px 0px 0px 0px;
+			overflow: auto;
+			transition: left 0.3s ease 0s;
+			&._active {
+				left: 0;
+			}
+		}
+	}
+	// .menu__list
 	&__list {
 		display: flex;
 		justify-content: flex-end;
+		@media (max-width: $mobile) {
+			flex-direction: column;
+			align-items: center;
+		}
 	}
-	// .menu-header__item
+	// .menu__item
 	&__item {
 		margin: 0px 40px 0px 0px;
+		@media (max-width: $tablet) {
+			margin: 0px 30px 0px 0px;
+		}
+		@media (max-width: $mobile) {
+			margin-right: 0;
+			&:not(:last-child) {
+				margin-bottom: 30px;
+			}
+		}
 	}
-	// .menu-header__link
+	// .menu__link
 	&__link {
 		font-family: Raleway;
 		font-weight: 700;
-		font-size: 0.625rem;
+		font-size: rem(10);
 		line-height: 1.2em;
 		letter-spacing: 0.14em;
 		color: #000;
@@ -105,15 +190,42 @@ $blueColor: #4285f4;
 				color: $mainColor;
 			}
 		}
+		@media (max-width: $mobile) {
+			font-size: rem(15);
+		}
 	}
-	// .menu-header__download
-	&__download {
-		flex: 0 0 252px;
-		display: flex;
-		justify-content: flex-end;
+}
+.icon-menu {
+	display: none;
+	margin: 0px 0px 0px 20px;
+	position: relative;
+	width: 30px;
+	height: 20px;
+	&::before,
+	&::after {
+		content: "";
 	}
-	// .menu-header__download-btn
-	&__download-btn {
+	span,
+	&::before,
+	&::after {
+		position: absolute;
+		width: 100%;
+		height: 2px;
+		left: 0;
+		background-color: #000;
+	}
+	span {
+		top: 50%;
+		transform: translateY(-1px);
+	}
+	&::after {
+		top: 0;
+	}
+	&::before {
+		bottom: 0;
+	}
+	@media (max-width: $mobile) {
+		display: block;
 	}
 }
 //========================================================================================================================================================
