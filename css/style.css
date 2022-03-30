@@ -327,6 +327,7 @@ body._lock {
 @media (max-width: 767.98px) {
   .main-block__container {
     flex-direction: column;
+    padding: 0px 15px;
   }
 }
 .main-block__content {
@@ -458,12 +459,13 @@ body._lock {
   right: 32px;
 }
 .image-stay-safe__img {
-  max-width: 229px;
+  width: 229px;
   position: relative;
   z-index: 10;
 }
 .image-stay-safe__img img {
   filter: drop-shadow(2px 4px 32px rgba(0, 0, 0, 0.12));
+  max-width: 100%;
 }
 .image-stay-safe__img::before {
   content: "";
