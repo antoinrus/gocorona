@@ -396,6 +396,11 @@ body._lock {
 .stay-safe {
   padding: 80px 0px;
 }
+@media (max-width: 767.98px) {
+  .stay-safe {
+    padding: 40px 0px;
+  }
+}
 .stay-safe__container {
   display: flex;
   align-items: center;
@@ -477,4 +482,195 @@ body._lock {
   transform: translate(-50%, 50%);
   background: rgba(240, 240, 240, 0.49);
   border-radius: 16px;
+}
+
+.experts {
+  padding: 104px 0px 116px 0px;
+  background-color: #fafbfd;
+}
+@media (max-width: 767.98px) {
+  .experts {
+    padding: 70px 0px 40px 0px;
+  }
+}
+@media (min-width: 767.98px) {
+  .experts__body {
+    display: flex;
+    align-items: center;
+  }
+}
+.experts__content {
+  flex: 0 1 50%;
+  padding: 0px 20px 0px 0px;
+}
+@media (max-width: 767.98px) {
+  .experts__content {
+    margin: 0px 0px 30px 0px;
+  }
+}
+.experts__video {
+  max-width: 80%;
+  margin: 0 auto;
+  position: relative;
+  padding: 0px 0px 50% 0px;
+  box-shadow: 0px 4px 18px rgba(88, 126, 236, 0.18);
+  border-radius: 8px;
+  overflow: hidden;
+}
+@media (min-width: 767.98px) {
+  .experts__video {
+    flex: 0 1 50%;
+    padding: 0px 0px 30% 0px;
+  }
+}
+.experts__video iframe {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.statistics-experts {
+  max-width: 654px;
+  margin: 0 auto 116px auto;
+  position: relative;
+}
+@media (max-width: 767.98px) {
+  .statistics-experts {
+    margin-bottom: 70px;
+  }
+}
+.statistics-experts__body {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  box-shadow: 0px 2px 24px rgba(88, 126, 236, 0.15);
+  border-radius: 16px;
+  background-color: #fff;
+  padding: 28px 20px;
+  gap: 70px;
+  flex-wrap: wrap;
+  z-index: 2;
+}
+@media (max-width: 767.98px) {
+  .statistics-experts__body {
+    gap: 40px;
+  }
+}
+.statistics-experts__item {
+  text-align: center;
+  padding: 0px 10px;
+}
+.statistics-experts__number {
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 1.1944444444;
+  letter-spacing: 0.14em;
+  color: #ec5863;
+  margin: 0px 0px 5px 0px;
+}
+.statistics-experts__text {
+  font-weight: 700;
+  font-size: 11px;
+  line-height: 1.1818181818;
+  letter-spacing: 0.37em;
+  text-transform: uppercase;
+}
+.statistics-experts__decor {
+  position: absolute;
+  background-color: #ec5863;
+}
+.statistics-experts__decor_1 {
+  width: 66px;
+  height: 66px;
+  left: -21px;
+  bottom: -21px;
+  border-radius: 16px;
+  transform: rotate(-30deg);
+}
+.statistics-experts__decor_2 {
+  width: 97px;
+  height: 97px;
+  top: -40px;
+  left: 33%;
+  border-radius: 30px;
+  transform: rotate(105deg);
+}
+.statistics-experts__decor_3 {
+  width: 128px;
+  height: 128px;
+  right: -50px;
+  bottom: -10px;
+  border-radius: 30px;
+  transform: rotate(-30deg);
+}
+
+.healthcare {
+  padding: 75px 0px 80px 0px;
+}
+@media (max-width: 767.98px) {
+  .healthcare {
+    padding: 40px 0px;
+  }
+}
+.healthcare__text-block {
+  text-align: center;
+  margin-bottom: 65px;
+}
+.healthcare__text-block .block-text__text {
+  max-width: 605px;
+  margin: 0 auto;
+}
+.healthcare__content {
+  display: flex;
+  gap: 72px;
+  padding: 0px 27px;
+}
+.healthcare__item {
+  flex: 0 1 33.333%;
+  position: relative;
+}
+.healthcare__item_1::after, .healthcare__item_1::before, .healthcare__item_2::before, .healthcare__item_3::before {
+  content: "";
+  position: absolute;
+  background-color: #ec5863;
+}
+
+.item-healthcare__body {
+  background: #ffffff;
+  box-shadow: 0px 4px 18px rgba(88, 126, 236, 0.18);
+  border-radius: 8px;
+  padding: 36px 17px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  height: 100%;
+}
+.item-healthcare__icon {
+  height: 72px;
+  max-width: 90px;
+  margin: 0px 0px 58px 0px;
+}
+.item-healthcare__icon img {
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.item-healthcare__title {
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 138.5%;
+  letter-spacing: 0.08em;
+}
+.item-healthcare__title:not(:last-child) {
+  margin: 0px 0px 8px 0px;
+}
+.item-healthcare__text {
+  font-size: 0.75rem;
+  line-height: 138.5%;
+  letter-spacing: 0.08em;
+  color: #616161;
 }
