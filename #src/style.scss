@@ -512,10 +512,9 @@ body {
 	}
 	// .experts__video
 	&__video {
-		max-width: 80%;
 		margin: 0 auto;
 		position: relative;
-		padding: 0px 0px 50% 0px;
+		padding: 0px 0px 60% 0px;
 		box-shadow: 0px 4px 18px rgba(88, 126, 236, 0.18);
 		border-radius: 8px;
 		overflow: hidden;
@@ -616,9 +615,9 @@ body {
 //========================================================================================================================================================
 
 .healthcare {
-	padding: 75px 0px 80px 0px;
+	padding: 75px 0px 50px 0px;
 	@media (max-width: $mobile) {
-		padding: 40px 0px;
+		padding: 40px 0px 10px 0px;
 	}
 	// .healthcare__container
 	&__container {
@@ -627,6 +626,10 @@ body {
 	&__text-block {
 		text-align: center;
 		margin-bottom: 65px;
+		@media (max-width: $mobile) {
+			margin-bottom: 40px;
+		}
+
 		.block-text__text {
 			max-width: 605px;
 			margin: 0 auto;
@@ -637,30 +640,76 @@ body {
 		display: flex;
 		gap: 72px;
 		padding: 0px 27px;
-		// @media (max-width: $tablet) {
-		// 	gap: 50px;
-		// }
+		@media (max-width: $pc) {
+			gap: 50px;
+		}
+		@media (max-width: $mobile) {
+			flex-wrap: wrap;
+			justify-content: center;
+		}
 	}
 	// .healthcare__item
 	&__item {
 		flex: 0 1 33.333%;
 		position: relative;
+		@media (max-width: $mobile) {
+			flex: 0 1 80%;
+		}
+		@media (max-width: $mobileSmall) {
+			flex: 1 1 100%;
+		}
 		//. healthcare__item_1
 		&_1 {
+			&::before {
+				width: 66px;
+				height: 66px;
+				bottom: -30px;
+				left: -25px;
+				border-radius: 16px;
+				transform: rotate(-30deg);
+			}
+			&::after {
+				width: 97px;
+				height: 97px;
+				right: -50px;
+				top: 35px;
+				border-radius: 30px;
+				transform: rotate(105deg);
+			}
 		}
 		//. healthcare__item_2
 		&_2 {
+			&::before {
+				width: 128px;
+				height: 128px;
+				right: -80px;
+				bottom: -25px;
+				border-radius: 30px;
+				transform: rotate(-30deg);
+			}
 		}
 		//. healthcare__item_3
 		&_3 {
+			&::before {
+				width: 66px;
+				height: 66px;
+				right: -20px;
+				top: -35px;
+				border-radius: 16px;
+				transform: rotate(-30deg);
+			}
 		}
-		&_1::after,
 		&_1::before,
+		&_1::after,
 		&_2::before,
 		&_3::before {
 			content: "";
 			position: absolute;
 			background-color: $mainColor;
+			z-index: -1;
+			@media (max-width: $mobile) {
+				display: none;
+			}
 		}
 	}
 }
@@ -684,6 +733,9 @@ body {
 		max-width: 90px;
 
 		margin: 0px 0px 58px 0px;
+		@media (max-width: $tablet) {
+			margin: 0px 0px 40px 0px;
+		}
 		img {
 			object-fit: contain;
 		}
@@ -710,4 +762,19 @@ body {
 //========================================================================================================================================================
 
 .footer {
+	padding: 30px 0px 47px 0px;
+	// .footer__container
+	&__container {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap: 57px;
+		flex-wrap: wrap;
+		@media (max-width: $mobile) {
+			gap: 25px;
+		}
+	}
+	// .footer__item
+	&__item {
+	}
 }
