@@ -758,3 +758,13 @@ body._lock {
     gap: 25px;
   }
 }
+._anim-title {
+  transform: translate(0, 120%);
+  opacity: 0;
+  transition: all 0.8s ease 0s;
+}
+
+._anim-title._active {
+  transform: translate(0, 0);
+  opacity: 1;
+}
